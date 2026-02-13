@@ -12,8 +12,9 @@ R = Annual interest Rate (in Decimal)
 
 ##This is a code snippet written in C#
 public class Class1
+public class Class1
 {
-	public static void Main()
+    public static void Main()
     {
         Console.WriteLine(":::Simple Interest Calculator:::");
 
@@ -24,5 +25,17 @@ public class Class1
         // Simple interest = (P * R * T) / 100
         double interestPerAnnum = (principal * rate * time) / 100.0;
         Console.WriteLine($"Your interest per annum is: {interestPerAnnum}");
+    }
+
+    private static double ReadDouble(string prompt)
+    {
+        while (true)
+        {
+            Console.Write(prompt);
+            string? s = Console.ReadLine();
+            if (double.TryParse(s, out double value))
+                return value;
+            Console.WriteLine("Invalid number. Please try again.");
+        }
     }
 }
